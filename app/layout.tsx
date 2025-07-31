@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Sort my favourite crypto",
   description: "Track and manage your favorite cryptocurrencies",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
