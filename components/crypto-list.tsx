@@ -36,18 +36,20 @@ export function CryptoList({ cryptoData, favorites, onToggleFavorite, user, isLo
 
   return (
     <div className="space-y-2">
-      <div className="grid grid-cols-12 gap-4 px-4 py-2 text-sm font-medium text-[#6b7280] border-b border-gray-800">
+      <div className="grid grid-cols-10 md:grid-cols-12 gap-4 px-3 md:px-4 py-2 text-sm font-medium text-[#6b7280] border-b border-gray-800">
         <div className="col-span-3">Asset</div>
         <div className="col-span-3">Price (BTC)</div>
-        <div className="col-span-2">24h Change</div>
-        <div className="col-span-2">Chart</div>
-        <div className="col-span-2">Favorite</div>
+        <div className="hidden md:block col-span-2">24h Change</div>
+        <div className="md:hidden col-span-2">24h chg</div>
+        <div className="hidden md:block col-span-2">Binance Chart</div>
+        <div className="hidden md:block col-span-2 text-center">Favorite</div>
+        <div className="md:hidden col-span-2 text-center">Fav</div>
       </div>
 
       {cryptoData.map((crypto) => (
         <div
           key={crypto.symbol}
-          className="grid grid-cols-12 gap-4 px-4 py-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
+          className="grid grid-cols-10 md:grid-cols-12 gap-4 px-3 md:px-4 py-2 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
         >
           <div className="col-span-3 flex items-center">
             <div>
@@ -70,7 +72,7 @@ export function CryptoList({ cryptoData, favorites, onToggleFavorite, user, isLo
             </span>
           </div>
 
-          <div className="col-span-2 flex items-center">
+          <div className="hidden md:flex col-span-2 items-center">
             <Button variant="outline" size="sm" asChild className="border-none hover:bg-gray-700 bg-transparent">
               <a
                 href={`https://www.binance.com/en/trade/${crypto.baseAsset}_BTC`}
@@ -84,7 +86,7 @@ export function CryptoList({ cryptoData, favorites, onToggleFavorite, user, isLo
             </Button>
           </div>
 
-          <div className="col-span-2 flex items-center">
+          <div className="col-span-2 flex items-center justify-center">
             {user ? (
               <Button
                 variant="ghost"
